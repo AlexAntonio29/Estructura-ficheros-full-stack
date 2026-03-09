@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: poc-db
+    environment:
+      POSTGRES_USER: pocuser
+      POSTGRES_PASSWORD: pocpass
+      POSTGRES_DB: pocdb
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./backend
+    container_name: poc-backend
+    environment:
+      DB_HOST: db
+      DB_USER: pocuser
+      DB_PASSWORD: pocpass
+      DB_NAME: pocdb
+      DB_PORT: 5432
+      PORT: 3000
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+
+  frontend:
+    build: ./frontend
+    container_name: poc-frontend
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
