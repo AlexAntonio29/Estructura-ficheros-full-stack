@@ -1,5 +1,17 @@
 
-# poc-app
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?logo=express&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white)
+
+# Proyecto "poc-app"
 
 Desarrollaras una aplicación web **fullstack** con frontend, backend y base de datos PostgreSQL orquestados con Docker Compose.
 
@@ -167,4 +179,55 @@ tree -L 3
 
 ---
 
-## Próximos 
+## frontend-login
+
+Con la estructura ya creada, es buen momento para trabajar en una **rama de feature** y mantener `main` limpio. 
+
+### 1. Crear la rama para el login del frontend
+
+Desde la raíz del repo (`poc-app/`):
+
+```bash
+# Ver en qué rama estás (debería ser main o master)
+git branch
+
+# Actualizar la rama principal por si acaso
+git pull origin main   # o master, según tu repo
+
+# Crear y cambiar a una rama nueva para el login
+git checkout -b feature/frontend-login
+```
+
+Esto sigue el flujo GitHub Flow: crear una rama por funcionalidad (en este caso, login tipo [Instagram](./docs/img_login.png)).
+
+### 2. Trabajar solo en esa rama
+
+Ahora que estás en `feature/frontend-login`:
+```bash
+# Editas/creas HTML, CSS, JS del login
+# Ajustas Dockerfile del frontend, etc.
+
+git status           # revisa qué cambiaste
+git add frontend Dockerfile docker-compose.yml
+git commit -m "feat: pantalla de login tipo Instagram en frontend"
+```
+
+Puedes seguir haciendo commits pequeños mientras evolucionas el login.
+
+### 3. Subir la rama y luego fusionarla
+
+Cuando estés listo para revisar o fusionar:
+
+```bash
+# Subir la rama a GitHub
+git push -u origin feature/frontend-login
+```
+
+Después, desde GitHub creas un Pull Request hacia `main` y, cuando lo apruebes, lo mezclas. Así `main` siempre tendrá solo código estable, y cada nueva parte (backend, perfil, etc.) vivirá en su rama de feature. 
+
+## Implementacion frontend-login
+
+
+
+## backend-login
+
